@@ -1,0 +1,8 @@
+{
+	"ApiKeys": {
+		"Steam": "YOUR_STEAM_API_KEY"
+	},
+	"UserIds": {
+		"Steam": "YOUR_STEAM_ID"
+	}
+}
