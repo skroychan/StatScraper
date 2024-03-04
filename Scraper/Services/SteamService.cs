@@ -17,8 +17,9 @@ public class SteamService : ApiService<SteamConfiguration>
 			{ "include_played_free_games", includePlayedFreeGames.ToString() }
 		};
 		var url = HttpHelper.BuildUrl(args, "http://api.steampowered.com/", "IPlayerService", "GetOwnedGames", "v0001");
+		var response = GetResponse<GetOwnedGamesResponse>(url);
 
-		return GetResponse<GetOwnedGamesResponse>(url).Games;
+		return response.Games;
 	}
 
 	public Achievement[] GetPlayerAchievements(long appId)
@@ -30,8 +31,8 @@ public class SteamService : ApiService<SteamConfiguration>
 			{ "appid", appId.ToString() }
 		};
 		var url = HttpHelper.BuildUrl(args, "http://api.steampowered.com/", "ISteamUserStats", "GetPlayerAchievements", "v0001");
-
 		var response = GetResponse<GetPlayerAchievementsResponse>(url);
+
 		return response.Success ? response.Achievements : [];
 	}
 
@@ -43,8 +44,9 @@ public class SteamService : ApiService<SteamConfiguration>
 			{ "steamid", Configuration.UserId }
 		};
 		var url = HttpHelper.BuildUrl(args, "http://api.steampowered.com/", "IPlayerService", "GetRecentlyPlayedGames", "v0001");
+		var response = GetResponse<GetRecentlyPlayedGamesResponse>(url);
 
-		return GetResponse<GetRecentlyPlayedGamesResponse>(url).Games;
+		return response.Games;
 	}
 
 	public Player GetPlayerSummary()
@@ -60,8 +62,9 @@ public class SteamService : ApiService<SteamConfiguration>
 			{ "steamids", string.Join(',', steamIds) }
 		};
 		var url = HttpHelper.BuildUrl(args, "http://api.steampowered.com/", "ISteamUser", "GetPlayerSummaries", "v0002");
+		var response = GetResponse<GetPlayerSummariesResponse>(url);
 
-		return GetResponse<GetPlayerSummariesResponse>(url).Players;
+		return response.Players;
 	}
 
 

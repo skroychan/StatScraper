@@ -5,12 +5,12 @@ namespace skroy.Scraper.Scrapers;
 
 public class SteamScraper : Scraper
 {
-	private readonly SteamService steamService;
+	private SteamService SteamService { get; }
 
 
 	public SteamScraper()
 	{
-		steamService = new SteamService();
+		SteamService = new SteamService();
 	}
 
 
@@ -18,22 +18,22 @@ public class SteamScraper : Scraper
 	{
 		var result = new List<SteamEntry>();
 
-		var games = steamService.GetOwnedGames();
+		var games = SteamService.GetOwnedGames();
 		foreach (var game in games)
 		{
-			var achievements = steamService.GetPlayerAchievements(game.AppId);
-			var entry = new SteamEntry();
+			var achievements = SteamService.GetPlayerAchievements(game.AppId);
 
-			entry.Id = game.AppId;
-			entry.Title = game.Name;
-			entry.LastScrapedDate = DateTime.Now;
-			entry.UpdatedDate = game.LastPlayed;
-			entry.Playtime = game.Playtime;
-			entry.ImageHash = game.ImgIconUrl;
-			entry.Achievements = achievements?.Count(x => x.Achieved);
-			entry.TotalAchievements = achievements?.Length;
-
-			result.Add(entry);
+			result.Add(new SteamEntry
+			{
+				Id = game.AppId,
+				Title = game.Name,
+				LastScrapedDate = DateTime.Now,
+				UpdatedDate = game.LastPlayed,
+				Playtime = game.Playtime,
+				ImageUrl = $"http://media.steampowered.com/steamcommunity/public/images/apps/{game.AppId}/{game.ImgHash}.jpg",
+				Achievements = achievements?.Count(x => x.Achieved),
+				TotalAchievements = achievements?.Length
+			});
 		}
 
 		return result;
@@ -41,14 +41,14 @@ public class SteamScraper : Scraper
 
 	public override User GetUser()
 	{
-		var result = new SteamUser();
+		var user = SteamService.GetPlayerSummary();
 
-		var user = steamService.GetPlayerSummary();
-		result.Name = user.Name;
-		result.ProfileUrl = user.ProfileUrl;
-		result.AvatarUrl = user.AvatarUrl;
-		result.CurrentGame = user.CurrentGame;
-
-		return result;
+		return new SteamUser
+		{
+			Name = user.Name,
+			ProfileUrl = user.ProfileUrl,
+			AvatarUrl = user.AvatarUrl,
+			CurrentGame = user.CurrentGame
+		};
 	}
 }

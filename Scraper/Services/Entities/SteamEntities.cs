@@ -26,7 +26,7 @@ public class OwnedGame
 	[JsonPropertyName("name")]
 	public string Name { get; set; }
 	[JsonPropertyName("img_icon_url")]
-	public string ImgIconUrl { get; set; }
+	public string ImgHash { get; set; }
 	[JsonPropertyName("playtime_2weeks")]
 	public long RecentPlaytime { get; set; }
 	[JsonPropertyName("playtime_forever")]

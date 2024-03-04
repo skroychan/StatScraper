@@ -9,6 +9,6 @@ public class ApiConfiguration : Configuration
 
 	public ApiConfiguration(ScraperType type) : base(type)
 	{
-		ApiKey = ConfigHelper.GetApiKey(scraperType);
+		ApiKey = ConfigHelper.GetApiKey(ScraperType);
 	}
 }

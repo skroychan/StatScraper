@@ -4,13 +4,13 @@ namespace skroy.Scraper.Configurations;
 
 public abstract class Configuration
 {
-	public readonly ScraperType scraperType;
-    public readonly string UserId;
+	public ScraperType ScraperType { get; }
+    public string UserId { get; }
 
 
     public Configuration(ScraperType type)
 	{
-        scraperType = type;
-		UserId = ConfigHelper.GetUserId(scraperType);
+        ScraperType = type;
+		UserId = ConfigHelper.GetUserId(ScraperType);
 	}
 }
