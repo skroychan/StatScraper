@@ -1,7 +1,7 @@
-﻿using Scraper.Helpers;
+﻿using skroy.Scraper.Helpers;
 using System.Text.Json.Serialization;
 
-namespace Scraper.Services.Entities;
+namespace skroy.Scraper.Services.Entities;
 
 public class SteamResponse<T>
 {

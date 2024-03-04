@@ -1,7 +1,7 @@
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Nodes;
 
-namespace Scraper.Helpers;
+namespace skroy.Scraper.Helpers;
 
 public static class ConfigHelper
 {

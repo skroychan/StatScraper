@@ -1,11 +1,11 @@
-﻿using Scraper.Configurations;
-using Scraper.Helpers;
-using Scraper.Services.Base;
-using Scraper.Services.Entities;
+﻿using skroy.Scraper.Configurations;
+using skroy.Scraper.Helpers;
+using skroy.Scraper.Services.Base;
+using skroy.Scraper.Services.Entities;
 
-namespace Scraper.Services;
+namespace skroy.Scraper.Services;
 
-public class SteamService : ApiService<Steam>
+public class SteamService : ApiService<SteamConfiguration>
 {
 	public OwnedGame[] GetOwnedGames(bool includeAppInfo = true, bool includePlayedFreeGames = true)
 	{

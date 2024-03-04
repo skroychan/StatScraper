@@ -1,6 +1,6 @@
-﻿using Scraper.Helpers;
+﻿using skroy.Scraper.Helpers;
 
-namespace Scraper.Configurations;
+namespace skroy.Scraper.Configurations;
 
 public abstract class Configuration
 {

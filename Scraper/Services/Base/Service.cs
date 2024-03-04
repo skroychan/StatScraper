@@ -1,6 +1,6 @@
-﻿using Scraper.Configurations;
+﻿using skroy.Scraper.Configurations;
 
-namespace Scraper.Services.Base;
+namespace skroy.Scraper.Services.Base;
 
 public abstract class Service<T> where T : Configuration, new()
 {

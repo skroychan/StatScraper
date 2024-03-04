@@ -1,4 +1,4 @@
-namespace Scraper.Entities;
+﻿namespace skroy.Scraper.Entities;
 
 public class SteamUser : User
 {

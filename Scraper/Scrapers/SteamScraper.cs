@@ -1,20 +1,20 @@
-using Scraper.Entities;
-using Scraper.Services;
+﻿using skroy.Scraper.Entities;
+using skroy.Scraper.Services;
 
-namespace Scraper.Scrapers;
+namespace skroy.Scraper.Scrapers;
 
 public class SteamScraper : Scraper
 {
 	private readonly SteamService steamService;
 
 
-    public SteamScraper()
-    {
+	public SteamScraper()
+	{
 		steamService = new SteamService();
-    }
+	}
 
 
-    public override IEnumerable<Entry> Scrape(bool full = false)
+	public override IEnumerable<Entry> Scrape(bool full = false)
 	{
 		var result = new List<SteamEntry>();
 

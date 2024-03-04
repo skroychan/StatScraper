@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
 using System.Text.Json;
 
-namespace Scraper.Helpers;
+namespace skroy.Scraper.Helpers;
 
 public static class JsonHelper
 {

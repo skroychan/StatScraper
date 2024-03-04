@@ -1,6 +1,6 @@
-﻿using Scraper.Entities;
+﻿using skroy.Scraper.Entities;
 
-namespace Scraper.Scrapers;
+namespace skroy.Scraper.Scrapers;
 
 public abstract class Scraper
 {
