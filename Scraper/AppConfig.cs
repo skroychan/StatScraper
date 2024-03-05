@@ -1,20 +1,23 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Nodes;
 
-namespace skroy.Scraper.Helpers;
+namespace skroy.Scraper;
 
-public static class ConfigHelper
+public static class AppConfig
 {
     private static readonly Dictionary<ScraperType, string> ApiKeys;
     private static readonly Dictionary<ScraperType, string> UserIds;
 
+    public static readonly string ConnectionString;
 
-    static ConfigHelper()
+
+    static AppConfig()
     {
         var configJson = File.ReadAllText("config.json");
         var config = JsonSerializer.Deserialize<JsonNode>(configJson);
-		ApiKeys = config["ApiKeys"].Deserialize<Dictionary<ScraperType, string>>();
-		UserIds = config["UserIds"].Deserialize<Dictionary<ScraperType, string>>();
+        ApiKeys = config["ApiKeys"].Deserialize<Dictionary<ScraperType, string>>();
+        UserIds = config["UserIds"].Deserialize<Dictionary<ScraperType, string>>();
+        ConnectionString = config["Database"]["ConnectionString"].ToString();
     }
 
 
@@ -28,4 +31,6 @@ public static class ConfigHelper
 public enum ScraperType
 {
     Steam,
+    MAL,
+    RYM
 }

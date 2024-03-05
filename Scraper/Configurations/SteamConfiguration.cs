@@ -1,6 +1,4 @@
-﻿using skroy.Scraper.Helpers;
-
-namespace skroy.Scraper.Configurations;
+﻿namespace skroy.Scraper.Configurations;
 
 public class SteamConfiguration : ApiConfiguration
 {

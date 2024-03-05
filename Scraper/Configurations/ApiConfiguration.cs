@@ -1,6 +1,4 @@
-﻿using skroy.Scraper.Helpers;
-
-namespace skroy.Scraper.Configurations;
+﻿namespace skroy.Scraper.Configurations;
 
 public class ApiConfiguration : Configuration
 {
@@ -9,6 +7,6 @@ public class ApiConfiguration : Configuration
 
 	public ApiConfiguration(ScraperType type) : base(type)
 	{
-		ApiKey = ConfigHelper.GetApiKey(ScraperType);
+		ApiKey = AppConfig.GetApiKey(ScraperType);
 	}
 }

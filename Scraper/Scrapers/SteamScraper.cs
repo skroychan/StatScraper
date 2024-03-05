@@ -1,4 +1,5 @@
 ﻿using skroy.Scraper.Entities;
+using skroy.Scraper.Entities.Base;
 using skroy.Scraper.Services;
 
 namespace skroy.Scraper.Scrapers;
