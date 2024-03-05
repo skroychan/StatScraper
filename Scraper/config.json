@@ -4,5 +4,8 @@
 	},
 	"UserIds": {
 		"Steam": "YOUR_STEAM_ID"
+	},
+	"Database": {
+		"ConnectionString": "YOUR_DATABASE_CONNECTION_STRING"
 	}
 }
